@@ -218,3 +218,82 @@ University of Technology Sydney (UTS)
 This dashboard is developed for academic and educational purposes only. The analyses and recommendations presented are exploratory and should not be interpreted as official NSW Government policy advice.
 
 
+```md id="7jlwmz"
+---
+
+# Dashboard Preview
+
+The following screenshots demonstrate the interactive narrative structure, visual storytelling approach, and policy-focused analytical capabilities of the NSW Road Crash Risk Intelligence Dashboard.
+
+---
+
+## 1. Executive Dashboard Overview
+
+This section introduces the stakeholder-focused investigative dashboard, including interactive filters and narrative framing aligned with the Detective storytelling arc.
+
+![Executive Dashboard Overview](screenshots/Screenshot_01.png)
+
+---
+
+## 2. Crash Trend Investigation
+
+This visual analyses whether crash patterns are increasing or decreasing across selected years, helping policymakers identify long-term risk behaviour.
+
+![Crash Trend Investigation](screenshots/Screenshot_02.png)
+
+---
+
+## 3. Hotspot Evidence Analysis
+
+This hotspot ranking visual identifies LGAs with the highest crash burden, supporting infrastructure prioritisation and targeted intervention planning.
+
+![Hotspot Evidence Analysis](screenshots/Screenshot_03.png)
+
+---
+
+## 4. Crash Severity Profiling
+
+This section investigates the distribution of crash outcomes such as fatal, injury, and non-casualty incidents.
+
+![Crash Severity Profiling](screenshots/Screenshot_04.png)
+
+---
+
+## 5. Temporal Risk Investigation
+
+This visual examines temporal crash concentration patterns to identify high-risk periods and recurring behavioural trends.
+
+![Temporal Risk Investigation](screenshots/Screenshot_05.png)
+
+---
+
+## 6. Spatial Evidence Mapping
+
+Interactive geospatial mapping reveals crash concentration clusters and regional risk density across NSW.
+
+![Spatial Evidence Mapping](screenshots/Screenshot_06.png)
+
+---
+
+## 7. Regional Spatial Investigation
+
+This detailed map view supports localised hotspot analysis and regional road safety investigation.
+
+![Regional Spatial Investigation](screenshots/Screenshot_07.png)
+
+---
+
+## 8. Policy Intervention Logic
+
+This section transforms the dashboard from a reporting interface into a decision-support system by recommending evidence-based intervention priorities.
+
+![Policy Intervention Logic](screenshots/Screenshot_08.png)
+
+---
+
+## 9. Data Transparency and Dataset Validation
+
+This section demonstrates dataset structure transparency, variable availability, and analytical reproducibility.
+
+![Dataset Validation](screenshots/Screenshot_09.png)
+```
