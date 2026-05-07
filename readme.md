@@ -218,8 +218,7 @@ University of Technology Sydney (UTS)
 This dashboard is developed for academic and educational purposes only. The analyses and recommendations presented are exploratory and should not be interpreted as official NSW Government policy advice.
 
 
-```md id="7jlwmz"
----
+
 
 # Dashboard Preview
 
@@ -296,4 +295,4 @@ This section transforms the dashboard from a reporting interface into a decision
 This section demonstrates dataset structure transparency, variable availability, and analytical reproducibility.
 
 ![Dataset Validation](screenshots/Screenshot_09.png)
-```
+
