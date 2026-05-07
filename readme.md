@@ -1,4 +1,3 @@
-````md
 # NSW Road Crash Risk Intelligence Dashboard  
 ### 36104 – Data Visualisation and Narratives (DVN) Assignment 3  
 ### Group 22
@@ -16,6 +15,7 @@ The dashboard is designed for the stakeholder persona:
 > **Transport Safety Policy Advisor – NSW Government**
 
 The system follows a **Detective Narrative Arc**, where users progressively uncover:
+
 - where crashes concentrate,
 - when risks increase,
 - what crash outcomes dominate,
@@ -33,6 +33,7 @@ This dashboard is not designed as a passive reporting tool. Instead, it function
 - and encourage targeted road safety action.
 
 The narrative flow includes:
+
 1. Crime Scene Overview  
 2. Crash Trend Investigation  
 3. Hotspot Detection  
@@ -56,6 +57,7 @@ NSW Government Open Data Portal
 https://data.nsw.gov.au/data/dataset/2-nsw-crash-data
 
 ## Key Dataset Characteristics
+
 - Real-world government dataset
 - Recent and policy-relevant
 - Temporal variables
@@ -68,9 +70,10 @@ https://data.nsw.gov.au/data/dataset/2-nsw-crash-data
 # Dashboard Features
 
 ## Core Features
+
 - Interactive filtering by:
-  - year,
-  - region/LGA,
+  - year
+  - region/LGA
   - crash severity
 
 - Dynamic crash trend analysis
@@ -84,7 +87,7 @@ https://data.nsw.gov.au/data/dataset/2-nsw-crash-data
 
 # Advanced Features Implemented
 
-The assignment required implementation of advanced narrative/dashboard techniques. The dashboard includes:
+The assignment required implementation of advanced narrative/dashboard techniques.
 
 ## 1. Context-Aware Filtering
 Interactive filters dynamically update all visuals and narrative context.
@@ -123,9 +126,7 @@ A simulation slider estimates potential crash reductions under hypothetical inte
 │       └── README.md
 │
 ├── datasets/
-│
 ├── documentation/
-│
 └── final_dashboard/
 ````
 
@@ -163,11 +164,11 @@ streamlit run app.py
 
 The dashboard incorporates principles from:
 
-* Gestalt visual organisation,
-* visual hierarchy,
-* pre-attentive attributes,
-* cognitive load reduction,
-* and stakeholder-centred storytelling.
+* Gestalt visual organisation
+* visual hierarchy
+* pre-attentive attributes
+* cognitive load reduction
+* stakeholder-centred storytelling
 
 The dark executive-style interface was intentionally selected to resemble modern intelligence and risk-monitoring systems used in professional environments.
 
@@ -177,11 +178,11 @@ The dark executive-style interface was intentionally selected to resemble modern
 
 The dashboard aims to help NSW transport policymakers:
 
-* identify high-risk corridors,
-* prioritise infrastructure reviews,
-* understand crash timing patterns,
-* support targeted enforcement planning,
-* and improve evidence-based road safety intervention strategies.
+* identify high-risk corridors
+* prioritise infrastructure reviews
+* understand crash timing patterns
+* support targeted enforcement planning
+* improve evidence-based road safety intervention strategies
 
 ---
 
@@ -216,5 +217,4 @@ University of Technology Sydney (UTS)
 
 This dashboard is developed for academic and educational purposes only. The analyses and recommendations presented are exploratory and should not be interpreted as official NSW Government policy advice.
 
-```
-```
+
