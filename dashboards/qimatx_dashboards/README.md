@@ -278,7 +278,7 @@ It includes:
 - seasonal crash pattern
 - crash location type summary
 
-![Overall Crash Overview](dashboards/qimatx_dashboards/srceenshots/tab1.png)
+![Overall Crash Overview](srceenshots/tab1.png)
 
 ---
 
@@ -299,7 +299,7 @@ It includes:
 
 This tab supports place-based intervention planning.
 
-![Hotspots and School Zones](dashboards/qimatx_dashboards/srceenshots/tab2.png)
+![Hotspots and School Zones](srceenshots/tab2.png)
 
 ---
 
@@ -323,7 +323,7 @@ The broad peak travel windows used are:
 
 This helps test whether crash risk overlaps with busy Australian travel periods.
 
-![Day and Time Risk](dashboards/qimatx_dashboards/srceenshots/tab3.png)
+![Day and Time Risk](srceenshots/tab3.png)
 
 ---
 
@@ -343,7 +343,7 @@ It includes analysis of:
 
 Important note: these charts show conditions recorded during crashes. They do not prove causation because the dataset does not include exposure data such as total traffic volume, weather duration, or road usage by condition.
 
-![External Conditions](dashboards/qimatx_dashboards/srceenshots/tab4.png)
+![External Conditions](srceenshots/tab4.png)
 
 ---
 
@@ -374,7 +374,7 @@ This does not only mean reducing crashes. It also represents broader road-networ
 - fewer disruption points
 - more reliable routes for drivers, buses, pedestrians, and school-zone users
 
-![Decision Summary](dashboards/qimatx_dashboards/srceenshots/tab5.png)
+![Decision Summary](srceenshots/tab5.png)
 
 ---
 

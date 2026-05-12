@@ -359,15 +359,7 @@ def apply_sidebar_filters(df: pd.DataFrame) -> Tuple[pd.DataFrame, int]:
 
     st.sidebar.markdown("---")
 
-    scenario_reduction = st.sidebar.slider(
-        "What-if crash reduction and traffic optimisation scenario",
-        min_value=0,
-        max_value=40,
-        value=20,
-        step=5,
-        help="20% is an ambitious scenario target for hotspot interventions, not a guaranteed prediction.",
-    )
-
+    scenario_reduction = 20
     return filtered_df, scenario_reduction
 
 

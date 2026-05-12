@@ -64,7 +64,7 @@ def render_decision_summary_tab(
         <div class="insight-box">
         <b>Suggested call to action:</b> Prioritise the LGAs and time windows where crash volume,
         casualty rate, school-zone exposure, and repeated temporal concentration overlap.
-        This turns the dashboard from descriptive reporting into a practical decision-support tool for safer and more efficient movement across NSW roads.
+        Due to dashboards, it supports decision-making for safer and more efficient movement across NSW roads.
         </div>
         """,
         unsafe_allow_html=True,
