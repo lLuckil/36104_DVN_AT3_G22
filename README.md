@@ -1,188 +1,93 @@
-# NSW Road Crash Risk Intelligence Dashboard  
+# NSW Crash Risk Intelligence Dashboard  
 ### 36104 – Data Visualisation and Narratives (DVN) Assignment 3  
-### Group 22
+### Group 22 – The Usual Suspects
 
 ---
 
-# Project Overview
+## Live Project Links
 
-This project was developed as part of the **Data Visualisation and Narratives Studio Assignment** at the University of Technology Sydney (UTS). The objective of the assignment is to transform real-world crash data into an interactive and persuasive narrative dashboard that supports evidence-based road safety decision-making.
+- **Live Streamlit Dashboard:** https://uts-dvn-group22.streamlit.app/
+- **GitHub Repository:** https://github.com/lLuckil/36104_DVN_AT3_G22  
+- **Subject:** 36104 – Data Visualisation and Narratives, University of Technology Sydney (UTS)  
+- **Assignment:** AT3 – The Data Narrative Studio  
 
-Our project focuses on analysing **NSW Road Crash Data from 2024 onward** to investigate crash hotspots, identify temporal and spatial risk patterns, examine school-zone exposure, and support targeted road safety interventions.
+> This README acts as the main technical documentation for the project. It includes the mandatory data dictionary, data provenance, credits, code structure, setup instructions, and dashboard feature explanation.
+
+---
+
+# 1. Project Overview
+
+This project transforms real-world **NSW Road Crash Data from 2024 onward** into an interactive, policy-focused dashboard for road safety decision support.
+
+The dashboard investigates:
+
+- overall crash burden across NSW,
+- crash concentration by Local Government Area (LGA),
+- crash timing patterns by weekday and two-hour interval,
+- school-zone crash exposure,
+- weather, lighting, road surface, and speed-limit context,
+- and intervention priorities for safer road-network planning.
 
 The dashboard is designed for the stakeholder persona:
 
-> **Transport for NSW / NSW Road Safety and Network Operations Stakeholders**
+> **Transport Safety Policy Advisor – NSW Government / Transport for NSW**
 
-The system uses a policy-focused investigative narrative where users progressively uncover:
-
-- the overall crash burden,
-- which LGAs show the highest crash concentration,
-- when crashes occur most frequently,
-- which external conditions appear in crash contexts,
-- and which areas should be prioritised for intervention.
+The system follows a **Detective Narrative Arc**, where users progressively move from broad crash overview to targeted policy recommendations.
 
 ---
 
-# Narrative Objective
+# 2. Narrative Objective
 
-This dashboard is not designed as a passive reporting tool. Instead, it functions as a decision-support narrative system intended to:
+This dashboard is not designed as a passive reporting tool. It functions as a **decision-support narrative system** intended to:
 
-- reveal crash patterns from recent NSW data,
-- communicate urgency through visual storytelling,
+- reveal recent crash patterns in NSW,
+- communicate urgency through visual storytelling and pre-attentive design,
 - support hotspot-based policy prioritisation,
-- identify high-risk time periods,
-- and encourage targeted road safety action.
+- identify high-risk time periods for targeted enforcement,
+- highlight school-zone exposure,
+- and drive evidence-based road safety action.
 
-The dashboard narrative is organised into **five main tabs**:
+The dashboard narrative is organised into five main tabs:
 
-1. Overall Crash Overview  
-2. Hotspots + School Zones  
-3. Day and Time Risk  
-4. External Conditions  
-5. Decision Summary  
-
----
-
-# Dataset
-
-## Dataset Source
-
-NSW Government Open Data Portal
-
-## Dataset Used
-
-**NSW Road Crash Data**
-
-## Dataset Link
-
-https://data.nsw.gov.au/data/dataset/2-nsw-crash-data
-
-## Data Used in This Dashboard
-
-The dashboard uses the cleaned dataset:
-
-```text
-data/nsw_crash_data_clean.csv
-```
-
-The project filters the data to keep:
-
-```python
-year_of_crash >= 2024
-```
-
-This means:
-
-- 2024 is included
-- 2023 and earlier records are removed
-- future years are kept if available
-
-A filtered output file can also be created by running `data_check.py`:
-
-```text
-data/nsw_crash_data_2024_onward.csv
-```
-
-## Key Dataset Characteristics
-
-- Real-world government dataset
-- Recent and policy-relevant
-- Includes temporal crash variables
-- Includes spatial crash variables
-- Includes LGA and location details
-- Includes crash severity outcomes
-- Includes school-zone indicators
-- Includes environmental and road condition variables
-- Suitable for interactive dashboard and narrative analysis
+1. **Overall Crash Overview**  
+2. **Hotspots + School Zones**  
+3. **Day and Time Risk**  
+4. **External Conditions**  
+5. **Decision Summary**  
 
 ---
 
-# Dashboard Features
-
-## Core Features
-
-- Interactive filtering by:
-  - month
-  - region / LGA
-  - crash outcome
-  - school-zone location
-  - speed limit
-
-- Overall crash summary metrics
-- Monthly crash trend analysis
-- Seasonal crash pattern analysis
-- Hotspot LGA ranking
-- School-zone crash analysis
-- Day and time risk analysis
-- Peak commute / school travel window check
-- External condition comparison
-- Interactive hotspot map
-- What-if intervention scenario
-- Policy recommendation framework
-
----
-
-# Advanced Features Implemented
-
-## 1. Context-Aware Filtering
-
-Sidebar filters dynamically update all charts, KPI cards, tables, and narrative summaries.
-
-## 2. Modular Tab-Based Narrative Structure
-
-The dashboard is separated into five tabs, allowing the user to move from general crash overview to specific intervention logic.
-
-## 3. Hotspot Investigation
-
-The hotspot tab identifies LGAs with the highest crash burden and supports localised investigation using school-zone indicators and spatial mapping.
-
-## 4. Temporal Risk Analysis
-
-The time-risk tab examines weekday patterns, two-hour intervals, and commute/school travel windows to identify when crashes are most concentrated.
-
-## 5. What-if Parameterisation
-
-A simulation slider estimates potential crash reduction and broader traffic improvement under a hypothetical intervention scenario.
-
-The default scenario is:
-
-```text
-20% estimated prevented / improved
-```
-
-This is treated as an ambitious intervention target, not a guaranteed prediction.
-
----
-
-# Technologies Used
+# 3. Technology Stack
 
 | Technology | Purpose |
 |---|---|
-| Python | Core development |
-| Streamlit | Interactive dashboard framework |
-| Pandas | Data processing and cleaning |
-| Plotly | Interactive visualisation |
-| OpenPyXL | Excel support if required |
-| GitHub | Collaboration and version control |
+| Python 3.9+ | Core application language |
+| Streamlit | Interactive dashboard framework and deployment |
+| Pandas | Data loading, cleaning, filtering, and aggregation |
+| Plotly Express | Interactive charts, heatmaps, maps, and bar charts |
+| OpenPyXL | Excel file handling if required |
+| GitHub | Version control and collaboration |
+| Streamlit Cloud | Public dashboard deployment |
 
 ---
 
-# Repository Structure
+# 4. Repository Structure
 
 ```text
-36104_DVN_AT3_25670050/
+36104_DVN_AT3_G22/
 │
-├── app.py
-├── utils.py
-├── data_check.py
-├── requirements.txt
-├── readme.MD
+├── app.py                         # Main Streamlit entry point
+├── utils.py                       # Shared utilities, constants, data loading, filters
+├── data_check.py                  # Data validation and 2024+ filtering script
+├── data_check.ipynb               # Optional notebook version of data validation
+├── requirements.txt               # Python dependencies
+├── README.md                      # Project and technical documentation
 │
 ├── data/
-│   └── nsw_crash_data_clean.csv
+│   ├── nsw_crash_data_clean.csv           # Cleaned source dataset
+│   └── nsw_crash_data_2024_onward.csv     # Optional filtered output generated by data_check.py
 │
-├── screenshots/
+├── srceenshots/
 │   ├── tab1.png
 │   ├── tab2.png
 │   ├── tab3.png
@@ -191,24 +96,426 @@ This is treated as an ambitious intervention target, not a guaranteed prediction
 │
 └── tabs/
     ├── __init__.py
-    ├── overview.py
-    ├── hotspots.py
-    ├── time_risk.py
-    ├── external_conditions.py
-    └── decision_summary.py
+    ├── overview.py                # Tab 1: Overall crash overview
+    ├── hotspots.py                # Tab 2: Hotspot LGAs + school zones
+    ├── time_risk.py               # Tab 3: Day and time risk patterns
+    ├── external_conditions.py     # Tab 4: Weather, lighting, surface, speed, location context
+    └── decision_summary.py        # Tab 5: What-if scenario + forensic simulator
 ```
+
+> Note: The screenshots folder is named `srceenshots/` in the current project structure. If the folder is renamed to `screenshots/`, update the image links in this README accordingly.
 
 ---
 
-# Running the Dashboard Locally
+# 5. Application Flow
 
-## Step 1 — Open Project Folder
+The Streamlit application follows a **load → filter → render** pipeline:
 
-```bash
-cd 36104_DVN_AT3_25670050
+1. `app.py` calls `load_data()` from `utils.py`.
+2. `load_data()` reads `data/nsw_crash_data_clean.csv`.
+3. `clean_columns()` standardises column names.
+4. The dataset is filtered to `year_of_crash >= 2024`.
+5. `add_engineered_fields()` creates derived fields such as season, time band, and casualty flags.
+6. `apply_sidebar_filters()` applies user-selected filters.
+7. Global KPI cards are rendered from the filtered DataFrame.
+8. Each tab receives the same `filtered_df` and renders its own charts and narrative summaries.
+
+Because Streamlit re-runs the script after each interaction, the dashboard remains stateless and automatically updates all visual components based on the current filter state.
+
+---
+
+# 6. Dataset and Data Provenance
+
+## 6.1 Source Dataset
+
+| Item | Details |
+|---|---|
+| Dataset name | NSW Road Crash Data |
+| Source | NSW Government Open Data Portal |
+| Source URL | https://data.nsw.gov.au/data/dataset/2-nsw-crash-data |
+| Responsible organisation | Transport for NSW / Centre for Road Safety |
+| File used in project | `data/nsw_crash_data_clean.csv` |
+| Filtered output | `data/nsw_crash_data_2024_onward.csv` |
+| Filtering rule | `year_of_crash >= 2024` |
+| Records after filtering | 18,939 crashes |
+| Purpose | Academic dashboard and decision-support narrative prototype |
+
+## 6.2 Data Processing Provenance
+
+| Processing Stage | Description |
+|---|---|
+| Raw source | NSW crash data downloaded from the NSW Government Open Data Portal |
+| Cleaning | Column names are stripped, lowercased, and converted to underscore format using `clean_columns()` |
+| Filtering | Only crash records from 2024 onward are retained |
+| Derived fields | Season, ordered month/day/time labels, time bands, peak commute flags, and casualty flags are generated in `utils.py` |
+| Output | A filtered dataset can be generated through `data_check.py` |
+| Dashboard use | The filtered DataFrame is passed into all dashboard tabs for consistent analysis |
+
+## 6.3 Data Limitation
+
+The dataset records crashes but does **not** include exposure data such as:
+
+- total traffic volume,
+- weather duration,
+- number of vehicles travelling under each condition,
+- road usage by time of day,
+- or pedestrian/school-zone population exposure.
+
+Therefore, condition-based charts show **crash context**, not direct causation.
+
+---
+
+# 7. Mandatory Data Dictionary
+
+This section defines the key variables, data types, source/provenance, and dashboard usage.
+
+## 7.1 Raw Dataset Columns
+
+| Variable / Column | Type | Definition | Provenance | Dashboard Usage |
+|---|---:|---|---|---|
+| `year_of_crash` | Integer | Year when the crash occurred. | Raw NSW crash dataset; filtered to `>= 2024`. | Time filtering and recent-data scope. |
+| `month_of_crash` | String | Month name, such as January or February. | Raw NSW crash dataset. | Monthly trend and seasonal analysis. |
+| `day_of_week_of_crash` | String | Day of week when the crash occurred. | Raw NSW crash dataset. | Weekday crash ranking and time-risk heatmap. |
+| `two-hour_intervals` | String | Two-hour crash time band, such as `08:00 - 09:59`. | Raw NSW crash dataset. | Time interval analysis and commute window grouping. |
+| `lga` | String | Local Government Area where the crash occurred. | Raw NSW crash dataset. | Hotspot ranking, LGA filtering, and mapping. |
+| `degree_of_crash` | String / Categorical | Crash outcome severity, such as Fatal, Injury, or Non-casualty. | Raw NSW crash dataset. | Severity split, fatal/injury counts, casualty flags. |
+| `degree_of_crash_-_detailed` | String / Categorical | More detailed severity classification. | Raw NSW crash dataset. | Detailed crash outcome profiling. |
+| `latitude` | Float | Crash latitude coordinate in WGS84 format. | Raw NSW crash dataset. | Interactive crash map. |
+| `longitude` | Float | Crash longitude coordinate in WGS84 format. | Raw NSW crash dataset. | Interactive crash map. |
+| `school_zone_location` | String / Categorical | Indicates whether the crash occurred in or near a school zone. | Raw NSW crash dataset. | School-zone exposure analysis. |
+| `school_zone_active` | String / Categorical | Indicates whether the school zone was active at the time of crash. | Raw NSW crash dataset. | Active school-zone risk interpretation. |
+| `weather` | String / Categorical | Weather condition recorded at the time of crash. | Raw NSW crash dataset. | External conditions analysis. |
+| `natural_lighting` | String / Categorical | Natural light condition, such as Daylight, Darkness, or Dawn/Dusk. | Raw NSW crash dataset. | Lighting context analysis. |
+| `surface_condition` | String / Categorical | Road surface condition, such as Dry or Wet. | Raw NSW crash dataset. | Surface-condition comparison. |
+| `road_surface` | String / Categorical | Road surface material or type. | Raw NSW crash dataset. | Road surface context analysis. |
+| `street_lighting` | String / Categorical | Artificial lighting condition at crash location. | Raw NSW crash dataset. | Street-lighting risk context. |
+| `speed_limit` | String / Categorical | Posted speed limit at crash location. Stored as string to support filtering. | Raw NSW crash dataset. | Speed-limit filtering and comparison. |
+| `type_of_location` | String / Categorical | Road location type, such as 2-way undivided road, T-junction, X-intersection, or roundabout. | Raw NSW crash dataset. | Location-type crash analysis and intervention logic. |
+| `no._killed` | Integer | Number of fatalities in the crash. | Raw NSW crash dataset; coerced to numeric on load. | Fatal crash statistics. |
+| `no._seriously_injured` | Integer | Number of people seriously injured. | Raw NSW crash dataset; coerced to numeric on load. | Injury severity context. |
+| `no._moderately_injured` | Integer | Number of people moderately injured. | Raw NSW crash dataset; coerced to numeric on load. | Injury severity context. |
+| `no._minor-other_injured` | Integer | Number of people with minor or other injuries. | Raw NSW crash dataset; coerced to numeric on load. | Injury severity context. |
+
+## 7.2 Engineered / Derived Fields
+
+These variables do **not** exist in the raw CSV. They are generated in `utils.py` by `add_engineered_fields()`.
+
+| Engineered Field | Type | Definition / Logic | Provenance | Dashboard Usage |
+|---|---:|---|---|---|
+| `month_num` | Integer | Converts month name into numeric month using `MONTH_TO_NUM`. | Derived in `utils.py`. | Season calculation and correct time sorting. |
+| `month_label` | Ordered categorical | Ordered version of `month_of_crash` using `MONTH_ORDER`. | Derived in `utils.py`. | Correct month order in charts. |
+| `season` | String / Categorical | Derived from `month_num`. Summer = Dec-Feb, Autumn = Mar-May, Winter = Jun-Aug, Spring = Sep-Nov. | Derived in `utils.py` using `get_season()`. | Seasonal crash pattern analysis. |
+| `day_label` | Ordered categorical | Ordered version of `day_of_week_of_crash` using Monday-Sunday order. | Derived in `utils.py`. | Correct weekday order in charts and heatmaps. |
+| `time_label` | Ordered categorical | Ordered version of `two-hour_intervals`. | Derived in `utils.py`. | Correct time order in interval charts. |
+| `time_band` | String / Categorical | Policy-friendly time grouping, such as AM peak, PM peak, Midday, Evening, or Late night. | Derived in `utils.py` using `get_time_band()`. | Commute and school travel risk interpretation. |
+| `is_peak_commute` | Boolean | `True` if the crash occurred during AM or PM commute windows. | Derived in `utils.py`. | Peak commute / school travel analysis. |
+| `is_fatal` | Boolean | `True` if `degree_of_crash` contains fatal outcome. | Derived in `utils.py`. | Fatal crash KPI and severity filtering. |
+| `is_injury` | Boolean | `True` if `degree_of_crash` contains injury outcome. | Derived in `utils.py`. | Injury crash KPI and severity filtering. |
+| `is_casualty` | Boolean | `True` if crash is fatal or injury. | Derived from `is_fatal` and `is_injury`. | Casualty rate and severity analysis. |
+
+---
+
+# 8. Shared Utility Reference
+
+Most reusable logic is centralised in `utils.py` so that the dashboard tabs remain consistent.
+
+| Function | Purpose |
+|---|---|
+| `clean_columns(df)` | Standardises column names by stripping whitespace, lowercasing, and replacing spaces with underscores. |
+| `get_season(month_number)` | Converts numeric month to Australian season. |
+| `extract_start_hour(interval)` | Extracts the start hour from a two-hour interval label. |
+| `get_time_band(interval)` | Groups time intervals into policy-friendly categories such as AM peak or PM peak. |
+| `is_peak_time(interval)` | Checks whether a crash falls in broad commute windows: `06:00–09:59` or `16:00–19:59`. |
+| `is_yes_series(series)` | Converts values such as Yes/Y/True/1 into boolean form. |
+| `add_engineered_fields(df)` | Adds all derived fields used across dashboard tabs. |
+| `load_data()` | Loads CSV, cleans columns, filters to 2024 onward, and adds engineered fields. |
+| `apply_sidebar_filters(df)` | Creates sidebar filters and returns the filtered DataFrame. |
+| `make_count_df(df, col, top_n)` | Creates frequency summaries for bar charts. |
+| `make_condition_summary(df, col, min_records)` | Summarises crash count, fatal count, casualty count, casualty rate, and fatal rate by condition. |
+| `render_css()` | Injects reusable CSS classes for insight, action, warning, and caption boxes. |
+
+---
+
+# 9. Dashboard Features
+
+## 9.1 Core Features
+
+- Interactive sidebar filtering by:
+  - month,
+  - LGA / area,
+  - crash outcome,
+  - school-zone location,
+  - and speed limit.
+- Overall crash summary KPI cards.
+- Monthly crash trend analysis.
+- Seasonal crash pattern analysis.
+- Hotspot LGA ranking.
+- School-zone crash exposure analysis.
+- Day and time risk analysis.
+- Peak commute and school travel window analysis.
+- External condition comparison.
+- Interactive crash map.
+- Fixed 20% intervention scenario.
+- Policy recommendation framework.
+
+## 9.2 Advanced Features
+
+### Feature 1 — Context-Aware Filtering
+
+The sidebar filters dynamically update all KPI cards, charts, maps, tables, and narrative summaries.
+
+When a user filters to a specific LGA, month, school-zone status, or speed limit, the same filtered dataset is passed to every dashboard tab. This creates a consistent decision-making workflow.
+
+### Feature 2 — Modular Tab-Based Narrative Structure
+
+The dashboard is structured as a five-chapter investigation:
+
+| Tab | Narrative Role | Purpose |
+|---|---|---|
+| Overall Crash Overview | Crime scene | Introduces total crash burden and broad patterns. |
+| Hotspots + School Zones | Suspects | Identifies LGAs and school-zone risk concentration. |
+| Day and Time Risk | Evidence | Shows when crashes occur most frequently. |
+| External Conditions | Reveal | Examines weather, lighting, surface, speed, and location context. |
+| Decision Summary | Verdict | Converts analysis into intervention priorities. |
+
+### Feature 3 — What-If Parameterisation
+
+The Decision Summary tab applies a fixed **20% estimated prevented / improved scenario**.
+
+This scenario is used as a policy interpretation tool, not a guaranteed prediction. It represents the possible effect of targeted improvements such as:
+
+- safer intersections,
+- better signal timing,
+- speed management,
+- road infrastructure upgrades,
+- school-zone interventions,
+- smoother travel flow,
+- fewer disruption points,
+- and more reliable routes.
+
+### Feature 4 — Interactive Forensic Simulator
+
+The Decision Summary tab includes an **Interactive Forensic Simulator** that demonstrates the physical logic behind a concrete median intervention on a 2-way undivided road.
+
+The simulator compares two states:
+
+| Scenario | Outcome |
+|---|---|
+| Without concrete median | Vehicle crosses into opposing lane and causes a head-on collision. |
+| With concrete median | Median deflects the vehicle back into its lane and prevents the fatal outcome. |
+
+This feature supports the policy narrative that severe crashes on high-risk road types can be physically preventable through targeted infrastructure decisions.
+
+---
+
+# 10. Dashboard Tabs and Screenshots
+
+## 10.1 Overall Crash Overview
+
+This tab introduces the dataset and provides a high-level summary of crash burden.
+
+It includes:
+
+- total crashes,
+- fatal crashes,
+- injury crashes,
+- LGAs analysed,
+- school-zone crashes,
+- monthly trend,
+- severity composition,
+- seasonal pattern,
+- and crash location type summary.
+
+![Overall Crash Overview](srceenshots/tab1.png)
+
+---
+
+## 10.2 Hotspots + School Zones
+
+This tab identifies the highest-risk LGAs and checks school-zone exposure.
+
+It includes:
+
+- top hotspot LGAs by crash count,
+- hotspot statistics table,
+- fatal crash count,
+- injury crash count,
+- casualty rate,
+- school-zone crash count,
+- active school-zone crash count,
+- and selected LGA crash map.
+
+![Hotspots and School Zones](srceenshots/tab2.png)
+
+---
+
+## 10.3 Day and Time Risk
+
+This tab examines when crashes occur most frequently.
+
+It includes:
+
+- crash count by weekday,
+- crash count by two-hour interval,
+- day × time heatmap,
+- and commute / school travel window check.
+
+The broad peak travel windows are:
+
+```text
+06:00 – 09:59
+16:00 – 19:59
 ```
 
-## Step 2 — Create a Virtual Environment
+![Day and Time Risk](srceenshots/tab3.png)
+
+---
+
+## 10.4 External Conditions
+
+This tab examines crash context based on external factors.
+
+It includes:
+
+- weather,
+- natural lighting,
+- surface condition,
+- road surface,
+- street lighting,
+- speed limit,
+- and type of location.
+
+Important caveat: these charts show the conditions recorded during crashes. They do not prove causation because the dataset does not include exposure data.
+
+![External Conditions](srceenshots/tab4.png)
+
+---
+
+## 10.5 Decision Summary
+
+This tab converts the dashboard from reporting into decision support.
+
+It includes:
+
+- current crash load,
+- 20% estimated prevented / improved scenario,
+- projected remaining crash load,
+- intervention interpretation,
+- recommended action logic,
+- and the Interactive Forensic Simulator.
+
+![Decision Summary](srceenshots/tab5.png)
+
+---
+
+# 11. Design System
+
+## 11.1 Visual Design Principles
+
+The dashboard applies the following design principles:
+
+| Principle | Application |
+|---|---|
+| Pre-attentive attributes | Red signals danger/fatality, amber signals warning, green signals positive action. |
+| Gestalt proximity | Related KPI cards and chart groups are placed together. |
+| Cognitive load reduction | Each tab focuses on one analytical layer only. |
+| Progressive disclosure | Users move from overview to hotspot, time, condition, and decision logic. |
+| Stakeholder-centred storytelling | Visuals and text are framed for policy decision-makers rather than technical analysts. |
+
+## 11.2 Colour System
+
+| Element | Hex Code | Usage |
+|---|---|---|
+| Background | `#0E1117` | Page and sidebar background |
+| Danger / Fatal | `#ef4444` | Fatal crash metrics and urgent insight highlights |
+| Warning | `#f59e0b` | Caution and interpretation caveats |
+| Safe / Action | `#22c55e` | Positive outcomes and recommended actions |
+| Chart primary | `#60a5fa` | Default Plotly chart colour |
+| Muted text | `#9ca3af` | Captions and secondary labels |
+
+## 11.3 Accessibility
+
+- High-contrast text is used on a dark background.
+- Colour is supported by labels and text, so colour is not the only signal.
+- Plotly hover tooltips provide exact values.
+- Warning boxes explain important interpretation limits.
+- Tab-based structure prevents information overload.
+
+---
+
+# 12. Code Annotation and Organisation
+
+The Streamlit code is organised and annotated by functional section.
+
+## 12.1 Main Files
+
+| File | Purpose |
+|---|---|
+| `app.py` | Main Streamlit entry point, tab setup, global KPI rendering, and dashboard layout. |
+| `utils.py` | Shared constants, data loading, cleaning, engineered fields, sidebar filters, helper functions, and CSS. |
+| `data_check.py` | Validates dataset structure and creates the 2024-onward filtered output. |
+| `tabs/overview.py` | Renders the overall crash overview tab. |
+| `tabs/hotspots.py` | Renders hotspot and school-zone analysis. |
+| `tabs/time_risk.py` | Renders weekday, time interval, and heatmap analysis. |
+| `tabs/external_conditions.py` | Renders weather, lighting, surface, speed, and location condition analysis. |
+| `tabs/decision_summary.py` | Renders intervention summary, what-if scenario, and forensic simulator. |
+
+## 12.2 Annotation Standard
+
+Code comments should be included around major logic blocks, such as:
+
+```python
+# Load and clean NSW crash dataset
+df = load_data()
+
+# Apply sidebar filters and return the filtered dataset
+filtered_df, scenario_reduction = apply_sidebar_filters(df)
+
+# Render dashboard tabs using the same filtered dataset
+render_overview_tab(filtered_df)
+```
+
+This supports future debugging, extension, and redeployment.
+
+---
+
+# 13. Tableau / Worksheet Organisation Note
+
+This project is implemented primarily in **Streamlit**, not as a Tableau workbook.
+
+If a Tableau version is created or submitted, worksheets should be logically labelled and organised using clear names rather than default labels such as `Sheet 1`.
+
+Recommended Tableau worksheet naming convention:
+
+```text
+01_Overall_Crash_Trend
+02_Severity_Composition
+03_LGA_Hotspot_Ranking
+04_School_Zone_Exposure
+05_Day_Time_Heatmap
+06_External_Conditions
+07_Decision_Summary
+```
+
+Recommended Tableau organisation:
+
+- group worksheets by dashboard tab or narrative stage,
+- use descriptive worksheet names,
+- keep dashboard actions and filters clearly labelled,
+- and include a Tableau data dictionary sheet if documentation is not placed in GitHub.
+
+---
+
+# 14. Running the Dashboard Locally
+
+## Step 1 — Clone the Repository
+
+```bash
+git clone https://github.com/lLuckil/36104_DVN_AT3_G22.git
+cd 36104_DVN_AT3_G22
+```
+
+## Step 2 — Create and Activate a Virtual Environment
 
 ### macOS / Linux
 
@@ -230,7 +537,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-## Step 4 — Run Data Check
+## Step 4 — Validate Dataset
 
 ```bash
 python3 data_check.py
@@ -256,209 +563,146 @@ http://localhost:8501
 
 ---
 
-# Dashboard Tabs and Screenshots
+# 15. Deployment Guide
 
-The dashboard contains five tabs. The screenshots below follow the same order as the dashboard navigation.
+The dashboard is deployed using Streamlit Cloud.
 
----
-
-## 1. Overall Crash Overview
-
-This tab introduces the crash dataset and gives a high-level view of the selected data.
-
-It includes:
-
-- total crashes
-- fatal crashes
-- injury crashes
-- LGAs analysed
-- school-zone crashes
-- monthly crash trend
-- crash outcome composition
-- seasonal crash pattern
-- crash location type summary
-
-![Overall Crash Overview](srceenshots/tab1.png)
+| Setting | Value |
+|---|---|
+| Main file path | `app.py` |
+| Python version | `3.9+` |
+| Production branch | `final_dashboards` |
+| Required data file | `data/nsw_crash_data_clean.csv` |
+| Public URL | https://dvn2026.streamlit.app/ |
 
 ---
 
-## 2. Hotspots + School Zones
+# 16. Known Limitations and Debugging
 
-This tab identifies the highest-risk LGAs and checks whether crashes are connected to school-zone locations.
-
-It includes:
-
-- top hotspot LGAs by crash count
-- hotspot statistics table
-- fatal crash count
-- injury crash count
-- casualty rate
-- school-zone crash count
-- active school-zone crash count
-- selected LGA crash map
-
-This tab supports place-based intervention planning.
-
-![Hotspots and School Zones](srceenshots/tab2.png)
+| Issue | Suggested Check |
+|---|---|
+| Dashboard shows no data | Check that `data/nsw_crash_data_clean.csv` exists and contains records where `year_of_crash >= 2024`. |
+| Column errors appear | Run `clean_columns()` on a sample and confirm column names match constants in `utils.py`. |
+| Filters show empty options | The current filter combination may have no matching records. Reset filters and try again. |
+| Simulator does not animate | Ensure JavaScript is enabled in the browser. Streamlit Cloud supports this by default. |
+| External condition results seem counterintuitive | Remember that the dataset does not include exposure data, so conditions show context rather than causation. |
 
 ---
 
-## 3. Day and Time Risk
+# 17. Key Analytical Findings
 
-This tab examines when crashes occur most frequently.
+The following findings support the dashboard narrative and intervention recommendations:
 
-It includes:
-
-- crash count by weekday
-- crash count by two-hour interval
-- day × time heatmap
-- commute and school travel peak-hour check
-
-The broad peak travel windows used are:
-
-```text
-06:00 – 09:59
-16:00 – 19:59
-```
-
-This helps test whether crash risk overlaps with busy Australian travel periods.
-
-![Day and Time Risk](srceenshots/tab3.png)
+- **18,939** total crashes recorded from 2024 onward.
+- **298** fatal crashes.
+- **12,812** injury crashes.
+- **991** school-zone crashes.
+- **Canterbury-Bankstown** recorded the highest LGA crash count with **944 crashes** and **80 school-zone incidents**.
+- **2-way undivided roads** recorded **7,350 crashes**, the highest of any road location type.
+- **Friday** recorded the highest weekday crash volume with **3,013 crashes**.
+- **Sunday** recorded the lowest weekday crash volume with **2,389 crashes**.
+- The **14:00–15:59** interval recorded the highest two-hour crash count with **2,824 crashes**.
+- **70.4%** of casualty crashes occurred in fine/clear weather.
+- Overcast conditions had a recorded fatal rate of **2.37%**, compared with **1.16%** in rain.
+- A **20% intervention scenario** estimates **3,787 crashes prevented or improved**, leaving **15,152 projected remaining incidents**.
 
 ---
 
-## 4. External Conditions
-
-This tab examines crash context based on external factors.
-
-It includes analysis of:
-
-- weather
-- natural lighting
-- surface condition
-- road surface
-- street lighting
-- speed limit
-- type of location
-
-Important note: these charts show conditions recorded during crashes. They do not prove causation because the dataset does not include exposure data such as total traffic volume, weather duration, or road usage by condition.
-
-![External Conditions](srceenshots/tab4.png)
-
----
-
-## 5. Decision Summary
-
-This tab transforms the dashboard from reporting into decision support.
-
-It includes:
-
-- current crash load
-- estimated prevented / improved scenario
-- projected remaining crashes
-- intervention interpretation
-- recommended dashboard story
-- suggested call to action
-
-The default scenario is:
-
-```text
-Estimated prevented / improved (20%)
-```
-
-This does not only mean reducing crashes. It also represents broader road-network benefits such as:
-
-- safer intersections
-- better signal timing
-- smoother travel flow
-- fewer disruption points
-- more reliable routes for drivers, buses, pedestrians, and school-zone users
-
-![Decision Summary](srceenshots/tab5.png)
-
----
-
-# Design Principles Applied
-
-The dashboard incorporates principles from:
-
-- Gestalt visual organisation
-- visual hierarchy
-- pre-attentive attributes
-- cognitive load reduction
-- stakeholder-centred storytelling
-- progressive disclosure through tab-based navigation
-
-The dark executive-style interface was selected to resemble modern intelligence, monitoring, and risk-management systems used in professional environments.
-
----
-
-# Intended Stakeholder Impact
+# 18. Intended Stakeholder Impact
 
 The dashboard aims to help NSW transport and road safety stakeholders:
 
-- identify high-risk LGAs
-- prioritise infrastructure reviews
-- detect school-zone exposure
-- understand crash timing patterns
-- support targeted enforcement planning
-- examine environmental and road condition contexts
-- improve evidence-based road safety intervention strategies
-- optimise road movement and reduce crash-related disruption
+- identify high-risk LGAs,
+- prioritise infrastructure reviews,
+- detect school-zone exposure,
+- understand crash timing patterns,
+- support targeted enforcement planning,
+- examine environmental and road condition contexts,
+- improve evidence-based road safety intervention strategies,
+- optimise road movement,
+- and reduce crash-related disruption.
 
 ---
 
-# Key Message
-
-The main message of this dashboard is:
+# 19. Key Message
 
 > Road safety action should not be spread evenly everywhere. It should be targeted where repeated evidence shows high crash volume, severe outcomes, school-zone exposure, and clear time or location concentration.
 
 ---
 
-# Call to Action
+# 20. Call to Action
 
 The dashboard recommends prioritising areas where the following risks overlap:
 
-1. High crash volume
-2. Fatal or injury crash concentration
-3. School-zone exposure
-4. Repeated weekday or peak-hour concentration
-5. External risk conditions such as poor lighting, wet surface, high-speed roads, or complex location types
+1. High crash volume  
+2. Fatal or injury crash concentration  
+3. School-zone exposure  
+4. Repeated weekday or peak-hour concentration  
+5. External risk contexts such as poor lighting, wet surface, high-speed roads, or complex location types  
 
-This helps turn the dashboard from descriptive reporting into a practical decision-support tool for safer and more efficient movement across NSW roads.
-
----
-
-# Contribution
-
-## Contributor
-
-**Group 22**
-
-## Contribution Areas
-
-- Narrative architecture
-- Streamlit dashboard development
-- Data preprocessing
-- Modular tab-based application structure
-- Interactive filtering system
-- Visual storytelling implementation
-- Hotspot and temporal crash analysis
-- Policy recommendation framework
-- README and documentation
+This turns the dashboard from descriptive reporting into a practical decision-support system for safer and more efficient movement across NSW roads.
 
 ---
 
-# Academic Context
+# 21. Credits
+
+## 21.1 Team Contributions
+
+| Name | Student ID | Contribution |
+|---|---:|---|
+| Malavika Rajesh | 25677752 | Led the design and strategy track. Directed the Detective narrative arc, stakeholder persona design, pitch script, slide deck, and presentation delivery. |
+| Trinh N Quang Nguyen | 25740743 | Directed core analytical strategy and technical implementation. Focused EDA on the 2-way undivided crash anomaly and developed the Interactive Forensic Simulator. |
+| Vignesh Selvam | 25740287 | Led the architecture track by developing core dashboard modules, preprocessing pipeline, shared utility systems, and GitHub collaboration workflows. |
+| William Wang | 25955333 | Co-led narrative design and presentation opening. Crafted the stakeholder hook and scale-of-the-problem arc. Supported EDA and project coordination. |
+| Malhar Bhavik Brahmbhatt | 26150110 | Directed core project analysis. Identified key findings and helped translate them into actionable dashboard improvements. |
+| Khanh Hoang Nguyen | 25670050 | Led the development of the core Streamlit dashboard, defining the code structure and analytical logic behind data workflows, user interaction controls, hotspot detection, temporal analysis, and interactive mapping. |
+| Saumya Goswami | 25942893 | Contributed to dashboard development, crash data analysis, visual design, interactive charts, project coordination, and road safety insights. |
+
+## 21.2 Data Sources
+
+| Source | Details |
+|---|---|
+| NSW Road Crash Data | NSW Government Open Data Portal |
+| Data URL | https://data.nsw.gov.au/data/dataset/2-nsw-crash-data |
+| Data collector | Transport for NSW / Centre for Road Safety |
+| Data use | Academic and educational dashboard prototype |
+
+## 21.3 Libraries and Tools
+
+| Tool / Library | URL | Use |
+|---|---|---|
+| Streamlit | https://streamlit.io | Interactive dashboard framework |
+| Plotly | https://plotly.com | Interactive data visualisation |
+| Pandas | https://pandas.pydata.org | Data cleaning and analysis |
+| NumPy | https://numpy.org | Numerical support |
+| OpenPyXL | https://openpyxl.readthedocs.io | Excel support |
+| GitHub | https://github.com | Version control and collaboration |
+
+---
+
+# 22. Compliance Checklist
+
+| Requirement | Status | Where Addressed |
+|---|---|---|
+| Mandatory data dictionary with variable definitions | Complete | Section 7 |
+| Variable data types included | Complete | Section 7 |
+| Provenance/source of variables included | Complete | Sections 6 and 7 |
+| Credits section included | Complete | Section 21 |
+| Streamlit code structure explained | Complete | Sections 4, 5, 8, and 12 |
+| Streamlit code annotation standard stated | Complete | Section 12 |
+| Tableau worksheet organisation addressed | Complete / Not applicable for Streamlit-only implementation | Section 13 |
+| Dataset limitation and causation caveat included | Complete | Sections 6.3, 10.4, and 16 |
+| Deployment and local setup instructions included | Complete | Sections 14 and 15 |
+
+---
+
+# 23. Academic Context and Disclaimer
 
 This project was developed for:
 
 **36104 – Data Visualisation and Narratives**  
-University of Technology Sydney (UTS)
+**University of Technology Sydney (UTS)**  
+**Assignment 3 – The Data Narrative Studio**  
+**Group 22 – The Usual Suspects**
 
----
-
-# Disclaimer
-
-This dashboard is developed for academic and educational purposes only. The analyses and recommendations presented are exploratory and should not be interpreted as official NSW Government policy advice.
+This dashboard is developed for academic and educational purposes only. The analyses and recommendations are exploratory and should not be interpreted as official NSW Government policy advice.
