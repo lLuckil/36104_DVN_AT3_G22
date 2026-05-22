@@ -571,7 +571,7 @@ The dashboard is deployed using Streamlit Cloud.
 |---|---|
 | Main file path | `app.py` |
 | Python version | `3.9+` |
-| Production branch | `final_dashboards` |
+| Production branch | `main` |
 | Required data file | `data/nsw_crash_data_clean.csv` |
 | Public URL | https://uts-dvn-group22.streamlit.app/ |
 
