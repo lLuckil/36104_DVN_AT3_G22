@@ -10,8 +10,9 @@
 - **GitHub Repository:** https://github.com/lLuckil/36104_DVN_AT3_G22  
 - **Subject:** 36104 – Data Visualisation and Narratives, University of Technology Sydney (UTS)  
 - **Assignment:** AT3 – The Data Narrative Studio  
+- **Video Walkthrough:** Submitted separately as a 3-minute tour of the Streamlit code logic, dashboard organisation, and advanced features.  
 
-> This README acts as the main technical documentation for the project. It includes the mandatory data dictionary, data provenance, credits, code structure, setup instructions, and dashboard feature explanation.
+> This README acts as the main technical documentation for the project. It includes the mandatory data dictionary, data provenance, credits, code structure, setup instructions, dashboard feature explanation, and deployment information.
 
 ---
 
@@ -481,28 +482,7 @@ This supports future debugging, extension, and redeployment.
 
 # 13. Tableau / Worksheet Organisation Note
 
-This project is implemented primarily in **Streamlit**, not as a Tableau workbook.
-
-If a Tableau version is created or submitted, worksheets should be logically labelled and organised using clear names rather than default labels such as `Sheet 1`.
-
-Recommended Tableau worksheet naming convention:
-
-```text
-01_Overall_Crash_Trend
-02_Severity_Composition
-03_LGA_Hotspot_Ranking
-04_School_Zone_Exposure
-05_Day_Time_Heatmap
-06_External_Conditions
-07_Decision_Summary
-```
-
-Recommended Tableau organisation:
-
-- group worksheets by dashboard tab or narrative stage,
-- use descriptive worksheet names,
-- keep dashboard actions and filters clearly labelled,
-- and include a Tableau data dictionary sheet if documentation is not placed in GitHub.
+This project was developed in **Streamlit**, not Tableau. Therefore, Tableau worksheet labelling is not applicable to the submitted dashboard. Equivalent technical documentation is provided through this README, the data dictionary, data provenance, credits section, code structure, setup guide, and annotated Streamlit code.
 
 ---
 
@@ -571,7 +551,7 @@ The dashboard is deployed using Streamlit Cloud.
 |---|---|
 | Main file path | `app.py` |
 | Python version | `3.9+` |
-| Production branch | `main` |
+| Production branch | `final_dashboards` |
 | Required data file | `data/nsw_crash_data_clean.csv` |
 | Public URL | https://uts-dvn-group22.streamlit.app/ |
 
@@ -626,21 +606,18 @@ The dashboard aims to help NSW transport and road safety stakeholders:
 
 # 19. Key Message
 
-> Road safety action should not be spread evenly everywhere. It should be targeted where repeated evidence shows high crash volume, severe outcomes, school-zone exposure, and clear time or location concentration.
+> Crashes do not only happen in extreme conditions. Due to NSW crash data, many serious incidents occurred during ordinary travel conditions — in clear weather, on normal roads, and during everyday movement. The core message is simple: road safety requires constant awareness, because risk can appear anywhere, even when the road feels safe.
 
 ---
 
 # 20. Call to Action
 
-The dashboard recommends prioritising areas where the following risks overlap:
+> We know where crashes concentrate.  
+> We know when risks rise.  
+> We know that danger can appear even when the road feels safe.  
+> Now the evidence must become action.
 
-1. High crash volume  
-2. Fatal or injury crash concentration  
-3. School-zone exposure  
-4. Repeated weekday or peak-hour concentration  
-5. External risk contexts such as poor lighting, wet surface, high-speed roads, or complex location types  
-
-This turns the dashboard from descriptive reporting into a practical decision-support system for safer and more efficient movement across NSW roads.
+By using crash evidence to prioritise high-traffic LGAs, repeated crash corridors, school-zone exposure, peak-hour risk, speed management, and safer road design. The final decision depends on you,**NSW Minister for Roads & Road Safety**, but our message is clear: act where the data shows risk before ordinary trips become serious incidents.
 
 ---
 
@@ -680,23 +657,7 @@ This turns the dashboard from descriptive reporting into a practical decision-su
 
 ---
 
-# 22. Compliance Checklist
-
-| Requirement | Status | Where Addressed |
-|---|---|---|
-| Mandatory data dictionary with variable definitions | Complete | Section 7 |
-| Variable data types included | Complete | Section 7 |
-| Provenance/source of variables included | Complete | Sections 6 and 7 |
-| Credits section included | Complete | Section 21 |
-| Streamlit code structure explained | Complete | Sections 4, 5, 8, and 12 |
-| Streamlit code annotation standard stated | Complete | Section 12 |
-| Tableau worksheet organisation addressed | Complete / Not applicable for Streamlit-only implementation | Section 13 |
-| Dataset limitation and causation caveat included | Complete | Sections 6.3, 10.4, and 16 |
-| Deployment and local setup instructions included | Complete | Sections 14 and 15 |
-
----
-
-# 23. Academic Context and Disclaimer
+# 22. Academic Context and Disclaimer
 
 This project was developed for:
 
